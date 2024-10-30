@@ -16,7 +16,7 @@ import {
 } from "./context.types";
 import api from "src/common/request/api";
 import { Cookies } from "react-cookie";
-import { useQuery } from "src/hooks/useQuery";
+import { useQueryParam } from "src/hooks/useQueryParam";
 
 // ** Defaults
 const defaultProvider: AuthValuesType = {
@@ -41,7 +41,7 @@ const AuthProvider = ({ children }: Props) => {
 
   // ** Hooks
   const location = useLocation();
-  const query = useQuery();
+  const query = useQueryParam();
   const navigate = useNavigate();
   const cookie = new Cookies();
 

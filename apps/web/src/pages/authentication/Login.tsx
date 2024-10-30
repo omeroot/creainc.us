@@ -1,19 +1,17 @@
 import { useAuth } from "src/hooks/useAuth";
-import { FormData } from "./Login.types";
 import { useForm } from "src/hooks/useForm";
-import { LoginRequestSchema } from "src/schema/auth";
+import { LoginPostData, LoginRequestSchema } from "src/schema/auth/login";
 
 export default function Login() {
   const auth = useAuth();
 
-  const { handleSubmit, error } = useForm<FormData>({
+  const { handleSubmit, error } = useForm<LoginPostData>({
     schema: LoginRequestSchema,
   });
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = (data: LoginPostData) => {
     console.log("Executing onSubmit", data);
-    const { email, password } = data;
-    auth.login({ email, password }, (error) => {
+    auth.login(data, (error) => {
       console.log("Error", error);
     });
   };

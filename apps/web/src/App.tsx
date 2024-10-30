@@ -12,6 +12,7 @@ import {
   Route,
   BrowserRouter as Router,
   Routes,
+  useLocation,
 } from "react-router-dom";
 import Login from "src/pages/authentication/Login";
 import AuthGuard from "src/components/AuthGuard";
@@ -19,12 +20,29 @@ import ProductList from "src/pages/product/List";
 import ProductDetails from "src/pages/product/Details";
 import FallbackSpinner from "./components/FallbackSpinner";
 import NoAuthGuard from "./components/NoAuthGuard";
+import DefaultLayout from "./components/DefaultLayout";
+import { ReactElement, useEffect } from "react";
 
 axiosConfig();
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
+  const getLayout = (page: ReactElement) => (
+    <DefaultLayout>{page}</DefaultLayout>
+  );
+
   return (
     <Router>
+      <ScrollToTop />
       <CookiesProvider>
         <AuthProvider>
           <Routes>
@@ -33,8 +51,11 @@ function App() {
             </Route>
             <Route element={<AuthGuard fallback={<FallbackSpinner />} />}>
               <Route path="/" element={<Navigate to="/products" replace />} />
-              <Route path="/products" element={<ProductList />} />
-              <Route path="/products/:id" element={<ProductDetails />} />
+              <Route path="/products" element={getLayout(<ProductList />)} />
+              <Route
+                path="/products/:id"
+                element={getLayout(<ProductDetails />)}
+              />
             </Route>
           </Routes>
         </AuthProvider>
