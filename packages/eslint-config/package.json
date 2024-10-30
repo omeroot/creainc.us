@@ -1,10 +1,9 @@
 {
-  "name": "@repo/eslint-config",
+  "name": "@creainc/eslint-config",
   "version": "0.0.0",
   "private": true,
   "files": [
     "library.js",
-    "next.js",
     "react-internal.js"
   ],
   "devDependencies": {
