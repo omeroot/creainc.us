@@ -16,8 +16,8 @@ type ResponseType = [number, { [key: string]: any }];
 const users: UserDataType[] = [
   {
     id: 1,
-    password: "admin",
-    email: "admin@materialize.com",
+    password: "user123",
+    email: "user@creainc.com",
   },
 ];
 

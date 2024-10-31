@@ -22,6 +22,8 @@ import FallbackSpinner from "./components/FallbackSpinner";
 import NoAuthGuard from "./components/NoAuthGuard";
 import DefaultLayout from "./components/DefaultLayout";
 import { ReactElement, useEffect } from "react";
+import { Toaster } from "react-hot-toast";
+import NotFound from "./pages/base/404";
 
 axiosConfig();
 
@@ -56,10 +58,14 @@ function App() {
                 path="/products/:id"
                 element={getLayout(<ProductDetails />)}
               />
+
+              {/* 404 */}
+              <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
         </AuthProvider>
       </CookiesProvider>
+      <Toaster />
     </Router>
   );
 }

@@ -9,13 +9,6 @@ type ToasterProps = {
 
 export const showErrorToast = ({ message, duration = 5000 }: ToasterProps) => {
   toast.error(message, {
-    style: {
-      backgroundColor: "var(--color-red-50)",
-      padding: "1rem",
-      border: "1px solid var(--color-red-200)",
-      fontSize: "1rem",
-      color: "var(--color-red-800)",
-    },
     duration,
   });
 };

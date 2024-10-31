@@ -118,7 +118,7 @@ const data: { products: ProductType[] } = {
           id: 1,
           name: "John Doe",
           comment: "This is a great product.",
-          rating: 5,
+          rating: 3,
         },
         {
           id: 2,
@@ -143,7 +143,7 @@ const data: { products: ProductType[] } = {
         "watchOS with Activity trends, cycle tracking, hearing health innovations, and the App Store on your wrist",
       ],
       price: "199",
-      rating: 3.5,
+      rating: 5,
       currency: "$",
       images: [
         {
@@ -343,6 +343,11 @@ mock.onPost("/v1/products/write-comment").reply((request) => {
     rating,
     comment,
   });
+
+  product.rating = Math.round(
+    product.comments.reduce((acc, c) => acc + c.rating, 0) /
+      product.comments.length
+  );
 
   return [200, product];
 });

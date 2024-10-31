@@ -1,3 +1,5 @@
+import { useCallback, useEffect } from "react";
+import { showErrorToast } from "src/helper/toast";
 import { useAuth } from "src/hooks/useAuth";
 import { useForm } from "src/hooks/useForm";
 import { LoginPostData, LoginRequestSchema } from "src/schema/auth/login";
@@ -9,16 +11,23 @@ export default function Login() {
     schema: LoginRequestSchema,
   });
 
-  const onSubmit = (data: LoginPostData) => {
-    console.log("Executing onSubmit", data);
-    auth.login(data, (error) => {
-      console.log("Error", error);
-    });
-  };
+  const onSubmit = useCallback(
+    (data: LoginPostData) => {
+      auth.login(data, (error) => {
+        if (error) {
+          showErrorToast({ message: "Invalid email or password" });
+        }
+      });
+    },
+    [auth]
+  );
 
-  if (error) {
-    console.log(error);
-  }
+  // alert error message is exist
+  useEffect(() => {
+    if (error) {
+      showErrorToast({ message: error });
+    }
+  }, [error]);
 
   return (
     <div className="flex flex-col justify-center flex-1 min-h-full px-6 py-12 lg:px-8">
@@ -51,7 +60,6 @@ export default function Login() {
                 id="email"
                 name="email"
                 type="email"
-                defaultValue={"admin@materialize.com"}
                 required
                 autoComplete="email"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm/6"
@@ -81,7 +89,6 @@ export default function Login() {
                 id="password"
                 name="password"
                 type="password"
-                defaultValue={"admin"}
                 required
                 autoComplete="current-password"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm/6"
@@ -96,6 +103,11 @@ export default function Login() {
             >
               Sign in
             </button>
+          </div>
+
+          <div className="flex flex-col text-sm text-gray-600">
+            <span>Email: user@creainc.com</span>
+            <span>Password :user123</span>
           </div>
         </form>
       </div>
