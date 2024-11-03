@@ -8,7 +8,7 @@ This repo includes the following packages/apps:
 
 ### Apps and Packages
 
-- `web`: another [React.js](https://react.dev/) app
+- `web`: [React.js](https://react.dev/) app
 - `@creainc/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `@creainc/typescript-config`: `tsconfig.json`s used throughout the monorepo
 - `@creainc/tailwind-config`: `tailwind` configuration.
