@@ -108,9 +108,9 @@ const AuthProvider = ({ children }: Props) => {
   };
 
   const handleLogout = () => {
+    cookie.remove(authConfig.storageTokenKeyName);
     setUser(null);
 
-    cookie.remove(authConfig.storageTokenKeyName);
     navigate("/login");
   };
 

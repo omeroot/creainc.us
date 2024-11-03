@@ -1,5 +1,4 @@
 import toast from "react-hot-toast";
-
 type ToasterProps = {
   message: string;
 
@@ -9,6 +8,13 @@ type ToasterProps = {
 
 export const showErrorToast = ({ message, duration = 5000 }: ToasterProps) => {
   toast.error(message, {
+    style: {
+      backgroundColor: "#fef2f2",
+      padding: "1rem",
+      border: "1px solid #fecaca",
+      fontSize: "1rem",
+      color: "#991b1b",
+    },
     duration,
   });
 };

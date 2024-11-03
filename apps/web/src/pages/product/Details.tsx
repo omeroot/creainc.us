@@ -36,7 +36,7 @@ export default function ProductDetails() {
   const [isLoading, setIsLoading] = useState(true);
   const [fetchError, setFetchError] = useState<AxiosError | null>(null);
 
-  const [vote, setVote] = useState(0);
+  const [vote, setVote] = useState<number>(0);
 
   // ref
   const commentRef = useRef<HTMLTextAreaElement>(null);
@@ -212,7 +212,6 @@ export default function ProductDetails() {
                         className="w-full px-0 text-sm text-gray-900 bg-white border-0 focus:ring-0 "
                         placeholder="Write a comment..."
                         name="comment"
-                        required
                       ></textarea>
                     </div>
                     <div className="flex items-center justify-between px-3 py-2 border-t ">
