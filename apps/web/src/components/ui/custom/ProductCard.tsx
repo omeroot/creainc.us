@@ -1,12 +1,6 @@
 import { MouseEventHandler } from "react";
 import { ProductType } from "src/types/product.types";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-} from "../Card";
+import { Card, CardContent, CardDescription, CardHeader } from "../Card";
 
 export const ProductCard = ({
   product,

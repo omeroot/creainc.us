@@ -1,4 +1,10 @@
-const FallbackSpinner = () => {
+import React from "react";
+
+export type FallbackSpinnerProps = {
+  children?: React.ReactNode;
+};
+
+const FallbackSpinner = ({ children }: FallbackSpinnerProps) => {
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <div role="status">
@@ -18,9 +24,8 @@ const FallbackSpinner = () => {
             fill="currentFill"
           />
         </svg>
-        <span className="sr-only">Loading...</span>
       </div>
-      <span className="mt-1 text-sm">Authenticating...</span>
+      {children}
     </div>
   );
 };

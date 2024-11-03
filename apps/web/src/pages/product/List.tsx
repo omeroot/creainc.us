@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "src/common/request/api";
+import FallbackSpinner from "src/components/FallbackSpinner";
 import { ProductCard } from "src/components/ui/custom/ProductCard";
 import { ProductType } from "src/types/product.types";
 
@@ -30,7 +31,11 @@ export default function ProductList() {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <FallbackSpinner>
+        <span className="mt-1 text-sm">Loading...</span>
+      </FallbackSpinner>
+    );
   }
 
   if (error) {

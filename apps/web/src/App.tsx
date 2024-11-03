@@ -51,7 +51,17 @@ function App() {
             <Route element={<NoAuthGuard />}>
               <Route path="/login" element={<Login />} />
             </Route>
-            <Route element={<AuthGuard fallback={<FallbackSpinner />} />}>
+            <Route
+              element={
+                <AuthGuard
+                  fallback={
+                    <FallbackSpinner>
+                      <span className="mt-1 text-sm">Authenticating...</span>
+                    </FallbackSpinner>
+                  }
+                />
+              }
+            >
               <Route path="/" element={<Navigate to="/products" replace />} />
               <Route path="/products" element={getLayout(<ProductList />)} />
               <Route

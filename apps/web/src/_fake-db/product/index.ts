@@ -324,7 +324,7 @@ const data: { products: ProductType[] } = {
  *
  * @mock
  */
-mock.onGet("/v1/products").reply(() => {
+mock.onGet("/v1/products").reply(async () => {
   return [200, data.products];
 });
 
