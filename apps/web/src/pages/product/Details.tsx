@@ -11,7 +11,7 @@ import { StarGroup } from "src/components/ui/StarGroup";
 import { Svg } from "src/components/ui/Svg";
 import type { AxiosError } from "axios";
 import { showErrorToast } from "src/helper/toast";
-import { ProductInfo } from "src/components/ui/ProductInfo";
+import { ProductInfo } from "src/components/ui/custom/ProductInfo";
 import {
   BreadCrumb,
   BreadCrumbItem,
@@ -101,6 +101,15 @@ export default function ProductDetails() {
       });
   }, []);
 
+  const onNavigateToReview = useCallback(() => {
+    setTab("reviews");
+    // scroll to the tab content
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth",
+    });
+  }, []);
+
   const onClickVote = (vote: number) => {
     setVote(vote);
   };
@@ -150,7 +159,11 @@ export default function ProductDetails() {
           </div>
 
           <div>
-            <ProductInfo product={product!} />
+            <ProductInfo
+              onClickRating={onNavigateToReview}
+              onClickReview={onNavigateToReview}
+              product={product!}
+            />
 
             <hr className="my-6" />
 

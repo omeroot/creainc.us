@@ -129,6 +129,30 @@ const data: { products: ProductType[] } = {
           comment: "This is a great product.",
           rating: 5,
         },
+        {
+          id: 3,
+          name: "John Doe",
+          comment: "This is a great product.",
+          rating: 4,
+        },
+        {
+          id: 4,
+          name: "Jane Doe",
+          comment: "This is a great product.",
+          rating: 5,
+        },
+        {
+          id: 5,
+          name: "John Doe",
+          comment: "This is a great product.",
+          rating: 4,
+        },
+        {
+          id: 6,
+          name: "Jane Doe",
+          comment: "This is a great product.",
+          rating: 5,
+        },
       ],
     },
     {
