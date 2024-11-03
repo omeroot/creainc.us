@@ -120,7 +120,7 @@ export default function ProductDetails() {
 
   return (
     <div className="font-sans">
-      <div className="max-w-2xl p-4 lg:max-w-6xl max-lg:mx-auto">
+      <div className="max-w-2xl px-6 py-8 lg:px-8 lg:max-w-6xl max-lg:mx-auto">
         {/* breadcrumb */}
         <ul className="flex items-center justify-start space-x-4 font-[sans-serif] mb-4 lg:mb-8">
           <Link

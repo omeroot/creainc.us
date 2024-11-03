@@ -38,11 +38,11 @@ export default function ProductList() {
   }
 
   return (
-    <div className="font-[sans-serif] pb-8 mx-auto lg:max-w-7xl sm:max-w-full">
+    <div className="font-[sans-serif] pb-8 mx-auto lg:max-w-7xl sm:max-w-full px-6 py-8 lg:px-8">
       <h2 className="mb-12 text-4xl font-extrabold text-gray-800">
         Smart Watches
       </h2>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {products.map((product: ProductType) => (
           <ProductCard
             key={product.id}

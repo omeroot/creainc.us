@@ -10,7 +10,7 @@ export default function DefaultLayout({ children }: Props) {
 
   return (
     <div id="default-layout" className="container pt-6 mx-auto lg:pt-10">
-      <div className="flex flex-row items-center justify-end w-full p-4">
+      <div className="flex flex-row items-center justify-end w-full px-6 py-4 lg:px-8">
         <button
           onClick={() => auth.logout()}
           type="button"
