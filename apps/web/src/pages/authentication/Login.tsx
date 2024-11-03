@@ -107,7 +107,7 @@ export default function Login() {
 
           <div className="flex flex-col text-sm text-gray-600">
             <span>Email: user@creainc.com</span>
-            <span>Password :user123</span>
+            <span>Password: user123</span>
           </div>
         </form>
       </div>

@@ -6,6 +6,7 @@ export type ProductType = {
   price: string;
   rating: number;
   currency: string;
+  arrivalDate: string;
   images: {
     id: number;
     thumbUrl: string;

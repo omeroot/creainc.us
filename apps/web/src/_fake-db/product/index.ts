@@ -12,6 +12,7 @@ import { ProductType } from "src/types/product.types";
   price: string;
   rating: number;
   currency: string;
+  arrivalDate: string; iso date
   images: [
     {
       id: number;
@@ -36,6 +37,7 @@ const data: { products: ProductType[] } = {
       id: 1,
       name: "Apple Watch Series 6",
       description: "The future of health is on your wrist.",
+      arrivalDate: "2024-11-15T00:00:00.000Z",
       features: [
         "Blood Oxygen app",
         "ECG app",
@@ -86,6 +88,7 @@ const data: { products: ProductType[] } = {
       id: 2,
       name: "Apple Watch SE",
       description: "Heavy on features. Light on price.",
+      arrivalDate: "2024-11-22T00:00:00.000Z",
       features: [
         "Large Retina OLED display",
         "Up to 2x faster processor than Series 3",
@@ -132,6 +135,7 @@ const data: { products: ProductType[] } = {
       id: 3,
       name: "Apple Watch Series 3",
       description: "The ultimate device for a healthy life.",
+      arrivalDate: "2024-12-01T00:00:00.000Z",
       features: [
         "Retina display",
         "Swimproof",
@@ -173,6 +177,7 @@ const data: { products: ProductType[] } = {
       id: 4,
       name: "Apple Watch Nike",
       description: "Your perfect running partner.",
+      arrivalDate: "2024-12-15T00:00:00.000Z",
       features: [
         "Nike Run Club app",
         "Nike Training Club app",
@@ -221,6 +226,7 @@ const data: { products: ProductType[] } = {
       id: 5,
       name: "Apple Watch Hermes",
       description: "The freedom of cellular.",
+      arrivalDate: "2024-12-25T00:00:00.000Z",
       features: [
         "Stainless steel case",
         "Sapphire crystal",
@@ -265,6 +271,7 @@ const data: { products: ProductType[] } = {
       id: 6,
       name: "Apple Watch Edition",
       description: "The first watch that reads your heart rate.",
+      arrivalDate: "2024-12-31T00:00:00.000Z",
       features: [
         "Ceramic case",
         "Sapphire crystal",
@@ -367,7 +374,7 @@ mock.onGet(/\/v1\/products\/\d+/).reply((request) => {
 
   const product = data.products.find((p) => p.id === id);
 
-  if (!product) return [400, { message: "Product not found" }];
+  if (!product) return [404, { message: "Product not found" }];
 
   return [200, product];
 });
